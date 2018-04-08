@@ -10,7 +10,7 @@ import UIKit
 
 class TodoListViewController: UITableViewController
 {
-    var itemArray : [Todo] = []
+    var itemArray : [TodoItem] = []
     
     override func viewDidLoad()
     {
@@ -20,9 +20,9 @@ class TodoListViewController: UITableViewController
     override func viewWillAppear(_ animated: Bool)
     {
         self.itemArray = [
-            Todo(value: "Find Mike"),
-            Todo(value: "Bug Eggos"),
-            Todo(value: "Destory Demogorgon")
+            TodoItem(title: "Find Mike"),
+            TodoItem(title: "Bug Eggos"),
+            TodoItem(title: "Destory Demogorgon")
         ]
     }
     
@@ -31,9 +31,9 @@ class TodoListViewController: UITableViewController
     {
         let todo = self.itemArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-        cell.textLabel?.text = todo.value
+        cell.textLabel?.text = todo.title
         
-        if todo.selected {
+        if todo.done {
             cell.accessoryType = .checkmark
         }
         else {
@@ -46,11 +46,11 @@ class TodoListViewController: UITableViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let todo = self.itemArray[indexPath.row]
-        todo.selected = !todo.selected
+        todo.done = !todo.done
         
-        print("Selected item: \(todo.value!)")
+        print("Selected item: \(todo.title!)")
         
-        if todo.selected {
+        if todo.done {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
         else {
@@ -74,7 +74,7 @@ class TodoListViewController: UITableViewController
                                       message: "",
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            self.itemArray.append(Todo(value: textField.text!))
+            self.itemArray.append(TodoItem(title: textField.text!))
             self.tableView.reloadData()
         }
         

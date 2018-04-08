@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Todo
+class TodoItem
 {
-    var value : String?
-    var selected : Bool = false
+    var title : String?
+    var done : Bool = false
     
-    init (value : String)
+    init (title : String)
     {
-        self.value = value
+        self.title = title
     }
 }
