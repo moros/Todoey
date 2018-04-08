@@ -8,20 +8,9 @@
 
 import UIKit
 
-class Item
-{
-    var value : String?
-    var selected : Bool = false
-    
-    init (value : String)
-    {
-        self.value = value
-    }
-}
-
 class TodoListViewController: UITableViewController
 {
-    var itemArray : [Item] = []
+    var itemArray : [Todo] = []
     
     override func viewDidLoad()
     {
@@ -30,17 +19,21 @@ class TodoListViewController: UITableViewController
     
     override func viewWillAppear(_ animated: Bool)
     {
-        self.itemArray = [Item(value: "Find Mike"), Item(value: "Bug Eggos"), Item(value: "Destory Demogorgon")]
+        self.itemArray = [
+            Todo(value: "Find Mike"),
+            Todo(value: "Bug Eggos"),
+            Todo(value: "Destory Demogorgon")
+        ]
     }
     
     //MARK - table datasource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let item = self.itemArray[indexPath.row]
+        let todo = self.itemArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-        cell.textLabel?.text = item.value
+        cell.textLabel?.text = todo.value
         
-        if item.selected {
+        if todo.selected {
             cell.accessoryType = .checkmark
         }
         else {
@@ -52,12 +45,12 @@ class TodoListViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let item = self.itemArray[indexPath.row]
-        item.selected = !item.selected
+        let todo = self.itemArray[indexPath.row]
+        todo.selected = !todo.selected
         
-        print("Selected item: \(item.value!)")
+        print("Selected item: \(todo.value!)")
         
-        if item.selected {
+        if todo.selected {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
         else {
@@ -81,7 +74,7 @@ class TodoListViewController: UITableViewController
                                       message: "",
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            self.itemArray.append(Item(value: textField.text!))
+            self.itemArray.append(Todo(value: textField.text!))
             self.tableView.reloadData()
         }
         
