@@ -32,13 +32,7 @@ class TodoListViewController: UITableViewController
         let todo = self.itemArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         cell.textLabel?.text = todo.title
-        
-        if todo.done {
-            cell.accessoryType = .checkmark
-        }
-        else {
-            cell.accessoryType = .none
-        }
+        cell.accessoryType = todo.done ? .checkmark : .none
         
         return cell
     }
@@ -48,15 +42,7 @@ class TodoListViewController: UITableViewController
         let todo = self.itemArray[indexPath.row]
         todo.done = !todo.done
         
-        print("Selected item: \(todo.title!)")
-        
-        if todo.done {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
-        else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        }
-        
+        tableView.cellForRow(at: indexPath)?.accessoryType = todo.done ? .checkmark : .none
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
