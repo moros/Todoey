@@ -7,23 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class TodoListViewController: UITableViewController
 {
-    var itemArray : [TodoItem] = []
+    var itemArray = [Item]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool)
-    {
-        self.itemArray = [
-            TodoItem(title: "Find Mike"),
-            TodoItem(title: "Bug Eggos"),
-            TodoItem(title: "Destory Demogorgon")
-        ]
+        self.loadItems()
     }
     
     //MARK - table datasource
@@ -44,6 +37,8 @@ class TodoListViewController: UITableViewController
         
         tableView.cellForRow(at: indexPath)?.accessoryType = todo.done ? .checkmark : .none
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        AppDelegate.shared.saveContext()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -60,8 +55,16 @@ class TodoListViewController: UITableViewController
                                       message: "",
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            self.itemArray.append(TodoItem(title: textField.text!))
+            let context = AppDelegate.shared.persistentContainer.viewContext
+            
+            let item = Item(context: context)
+            item.title = textField.text!
+            item.done = false
+            
+            self.itemArray.append(item)
             self.tableView.reloadData()
+            
+            AppDelegate.shared.saveContext()
         }
         
         alert.addTextField { (alertTextField) in
@@ -71,5 +74,16 @@ class TodoListViewController: UITableViewController
         alert.addAction(action);
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    func loadItems()
+    {
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        do {
+            self.itemArray = try AppDelegate.shared.context.fetch(request)
+        }
+        catch {
+            print("Error fetching data from context \(error)")
+        }
     }
 }
