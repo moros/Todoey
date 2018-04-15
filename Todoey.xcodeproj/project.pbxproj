@@ -15,7 +15,6 @@
 		CD0744A5207964C70057006D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0744A3207964C70057006D /* LaunchScreen.storyboard */; };
 		CD36CBD22082AA8B00001FDA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD36CBD12082AA8B00001FDA /* CategoryViewController.swift */; };
 		CD36CBD42082AC4400001FDA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD36CBD32082AC4400001FDA /* Category.swift */; };
-		CDD703CB207AA5DF004C9F73 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDD703C9207AA5DF004C9F73 /* DataModel.xcdatamodeld */; };
 		CDD703EE207AA855004C9F73 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD703ED207AA855004C9F73 /* Item.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		CD0744A6207964C70057006D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD36CBD12082AA8B00001FDA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		CD36CBD32082AC4400001FDA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		CDD703CA207AA5DF004C9F73 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		CDD703ED207AA855004C9F73 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,9 +106,8 @@
 		CD0744AF207A95EA0057006D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CDD703C9207AA5DF004C9F73 /* DataModel.xcdatamodeld */,
-				CDD703ED207AA855004C9F73 /* Item.swift */,
 				CD36CBD32082AC4400001FDA /* Category.swift */,
+				CDD703ED207AA855004C9F73 /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,7 +262,6 @@
 				CD36CBD22082AA8B00001FDA /* CategoryViewController.swift in Sources */,
 				CDD703EE207AA855004C9F73 /* Item.swift in Sources */,
 				CD07449D207964C60057006D /* TodoListViewController.swift in Sources */,
-				CDD703CB207AA5DF004C9F73 /* DataModel.xcdatamodeld in Sources */,
 				CD07449B207964C60057006D /* AppDelegate.swift in Sources */,
 				CD36CBD42082AC4400001FDA /* Category.swift in Sources */,
 			);
@@ -415,7 +411,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3K3569JFML;
 				INFOPLIST_FILE = Todoey/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.moros.Todoey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -431,7 +430,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3K3569JFML;
 				INFOPLIST_FILE = Todoey/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.moros.Todoey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -461,19 +463,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CDD703C9207AA5DF004C9F73 /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CDD703CA207AA5DF004C9F73 /* DataModel.xcdatamodel */,
-			);
-			currentVersion = CDD703CA207AA5DF004C9F73 /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = CD07448F207964C50057006D /* Project object */;
 }

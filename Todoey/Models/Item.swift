@@ -7,8 +7,13 @@
 //
 
 import Foundation
-import CoreData
+import RealmSwift
 
-public class Item : NSManagedObject
+class Item : Object
 {
+    @objc dynamic var title : String = ""
+    @objc dynamic var done : Bool = false
+    @objc dynamic var dateCreated: Date?
+    
+    var parentCategory = LinkingObjects(fromType: Category.self, property: "items")
 }
