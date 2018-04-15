@@ -15,6 +15,7 @@
 		CD0744A5207964C70057006D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0744A3207964C70057006D /* LaunchScreen.storyboard */; };
 		CD36CBD22082AA8B00001FDA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD36CBD12082AA8B00001FDA /* CategoryViewController.swift */; };
 		CD36CBD42082AC4400001FDA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD36CBD32082AC4400001FDA /* Category.swift */; };
+		CD36CBD82083CE4300001FDA /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD36CBD72083CE4300001FDA /* SwipeTableViewController.swift */; };
 		CDD703EE207AA855004C9F73 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD703ED207AA855004C9F73 /* Item.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		CD0744A6207964C70057006D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD36CBD12082AA8B00001FDA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		CD36CBD32082AC4400001FDA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		CD36CBD72083CE4300001FDA /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		CDD703ED207AA855004C9F73 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 			children = (
 				CD36CBD12082AA8B00001FDA /* CategoryViewController.swift */,
 				CD07449C207964C60057006D /* TodoListViewController.swift */,
+				CD36CBD72083CE4300001FDA /* SwipeTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				CDD703EE207AA855004C9F73 /* Item.swift in Sources */,
 				CD07449D207964C60057006D /* TodoListViewController.swift in Sources */,
 				CD07449B207964C60057006D /* AppDelegate.swift in Sources */,
+				CD36CBD82083CE4300001FDA /* SwipeTableViewController.swift in Sources */,
 				CD36CBD42082AC4400001FDA /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,7 +417,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3K3569JFML;
 				INFOPLIST_FILE = Todoey/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.moros.Todoey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -429,7 +436,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3K3569JFML;
 				INFOPLIST_FILE = Todoey/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.moros.Todoey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
