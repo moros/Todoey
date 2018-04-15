@@ -8,11 +8,14 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class TodoListViewController: SwipeTableViewController
 {
     let realm = try! Realm()
     var itemResults: Results<Item>?
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var selectedCategory : Category? {
         didSet {
@@ -23,7 +26,29 @@ class TodoListViewController: SwipeTableViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.tableView.separatorStyle = .none
         self.tableView.rowHeight = 80.0
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        let color = UIColor(hexString: self.selectedCategory?.color)
+        
+        self.title = self.selectedCategory?.name
+        self.navigationController?.navigationBar.barTintColor = color
+        self.navigationController?.navigationBar.tintColor = UIColor.init(contrastingBlackOrWhiteColorOn: color, isFlat: true)
+        self.searchBar.barTintColor = color
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        let originalColour = UIColor(hexString: "1D9BF6")
+        
+        self.navigationController?.navigationBar.barTintColor = originalColour
+        self.navigationController?.navigationBar.tintColor = UIColor.flatWhite()
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.flatWhite()]
     }
     
     //MARK - table datasource
@@ -32,7 +57,13 @@ class TodoListViewController: SwipeTableViewController
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         if let todo = self.itemResults?[indexPath.row] {
+            let total = CGFloat( (self.itemResults?.count)! )
+            let percentage = CGFloat(indexPath.row) / total
+            let color = UIColor(hexString: todo.parentCategory.first!.color)!
+            
             cell.textLabel?.text = todo.title
+            cell.backgroundColor = color.darken(byPercentage: percentage)
+            cell.textLabel?.textColor = UIColor.init(contrastingBlackOrWhiteColorOn: cell.backgroundColor, isFlat: true)
             cell.accessoryType = todo.done ? .checkmark : .none
         }
         else {
