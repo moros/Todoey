@@ -1,4 +1,5 @@
 PODS:
+  - ChameleonSwift (3.0)
   - Realm (3.2.0):
     - Realm/Headers (= 3.2.0)
   - Realm/Headers (3.2.0)
@@ -7,14 +8,16 @@ PODS:
   - SwipeCellKit (2.0.1)
 
 DEPENDENCIES:
+  - ChameleonSwift
   - RealmSwift
   - SwipeCellKit
 
 SPEC CHECKSUMS:
+  ChameleonSwift: 1eaab7a98a8877952e378a7686353035e467c286
   Realm: ae552b9b9eca3a12374a589fa842f220e286a80a
   RealmSwift: 05727129547dcab3fe828bd87bc30be903736b9c
   SwipeCellKit: 76888d93d1843dc568fdf38fff21b15dbbcf6b28
 
-PODFILE CHECKSUM: 56be897b12cef212421e64821abf10559e62455b
+PODFILE CHECKSUM: 037b7868c703b4483c8178c6a4c07f9c069f4d4d
 
 COCOAPODS: 1.4.0
